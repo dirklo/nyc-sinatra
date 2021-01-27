@@ -1,0 +1,32 @@
+<h1>SHOW PAGE FOR <%= @figure.name %></h1>
+
+<h2>Titles:</h2>
+<ul>
+    <% if @figure.titles %>
+        <% @figure.titles.each do |title| %>
+            <li>
+                <%= title.name %>
+            </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<h2>Landmarks:</h2>
+<ul>
+    <% if @figure.landmarks %>
+        <% @figure.landmarks.each do |landmark| %>
+            <li>
+                <%= landmark.name %>
+            </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<form action="/figures/<%= @figure.id %>/edit">
+    <button type="submit">Edit Figure</button>
+</form>
+
+<form action="/figures/<%= @figure.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete Figure</button>
+</form>
